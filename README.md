@@ -8,22 +8,91 @@ To write a program to predict the marks scored by a student using the simple lin
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. 
-2. 
-3. 
-4. 
+Step 1: Create the dataset
+
+
+Step 2: Split into X and Y
+
+
+Step 3: Split data for training & testing
+
+
+Step 4: Create and train the model
+
+
+Step 5: Make predictions
+
+
+Step 6: Evaluate the model
+
+
+Step 7: Visualize results
+
+
+Step 8: Predict for new data
 
 ## Program:
 ```
 /*
-Program to implement the simple linear regression model for predicting the marks scored.
-Developed by: 
-RegisterNumber:  
+# Import required libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+
+data = {
+    'Hours_Studied': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'Marks_Scored':  [35, 40, 50, 55, 60, 65, 70, 75, 80, 85]
+}
+
+df = pd.DataFrame(data)
+print("Dataset:")
+print(df)
+
+X = df[['Hours_Studied']]   # Feature (2D)
+y = df['Marks_Scored']      # Target (1D)
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+
+print("\nModel Evaluation:")
+print("Slope (m):", model.coef_[0])
+print("Intercept (c):", model.intercept_)
+print("Mean Squared Error:", mean_squared_error(y_test, y_pred))
+print("R² Score:", r2_score(y_test, y_pred))
+
+
+plt.scatter(X, y, color='blue', label='Actual Data')
+plt.plot(X, model.predict(X), color='red', label='Regression Line')
+plt.xlabel('Hours Studied')
+plt.ylabel('Marks Scored')
+plt.title('Simple Linear Regression: Hours vs Marks')
+plt.legend()
+plt.show()
+
+
+hours = float(input("\nEnter number of study hours: "))
+predicted_marks = model.predict([[hours]])
+print(f"Predicted Marks for studying {hours} hours = {predicted_marks[0]:.2f}")
+Developed by: V.Pallavi
+RegisterNumber:   212225230293
 */
 ```
 
 ## Output:
-![simple linear regression model for predicting the marks scored](sam.png)
+<img width="460" height="351" alt="image" src="https://github.com/user-attachments/assets/dd291a3f-55de-4cb5-a08b-43ca55e08a44" />
+<img width="490" height="161" alt="image" src="https://github.com/user-attachments/assets/c445d3be-d7aa-41cf-a78f-2e9aa702e589" />
+<img width="1072" height="707" alt="image" src="https://github.com/user-attachments/assets/c89839ae-3d31-426e-852c-cb088c241ba4" />
+<img width="621" height="143" alt="image" src="https://github.com/user-attachments/assets/82ef92fd-5c07-4a92-8675-f214dad01602" />
 
 
 ## Result:
