@@ -83,8 +83,8 @@ plt.show()
 hours = float(input("\nEnter number of study hours: "))
 predicted_marks = model.predict([[hours]])
 print(f"Predicted Marks for studying {hours} hours = {predicted_marks[0]:.2f}")
-Developed by: V.Pallavi
-RegisterNumber:   212225230293
+Developed by: TAMILPAGALAVAN K
+RegisterNumber:   212223040224
 */
 ```
 
